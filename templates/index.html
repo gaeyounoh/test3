@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>대의맹 공성 서신 생성기</title>
+</head>
+<body>
+    <h1>대의맹 공성 서신 생성기</h1>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="/">
+        <label for="date">날짜 선택:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="time">시간 입력 (HH:MM):</label>
+        <input type="text" id="time" name="time" required>
+        <select name="time_symbol">
+            <option value="">없음</option>
+            <option value="@">@(파랑)</option>
+            <option value="#">#(노랑)</option>
+            <option value="&">&amp;(빨강)</option>
+            <option value="$">$$(초록)</option>
+        </select><br><br>
+
+        <label for="start_city">공성 도시:</label>
+        <input type="text" id="start_city" name="start_city" required>
+        <select name="location_symbol">
+            <option value="">없음</option>
+            <option value="@">@(파랑)</option>
+            <option value="#">#(노랑)</option>
+            <option value="&">&amp;(빨강)</option>
+            <option value="$">$$(초록)</option>
+        </select><br><br>
+
+        <label for="end_city">재배치 도시:</label>
+        <input type="text" id="end_city" name="end_city" required>
+        <select name="relocation_symbol">
+            <option value="">없음</option>
+            <option value="@">@(파랑)</option>
+            <option value="#">#(노랑)</option>
+            <option value="&">&amp;(빨강)</option>
+            <option value="$">$$(초록)</option>
+        </select><br><br>
+
+        <label for="participants">참여 인원:</label>
+        <input type="text" id="participants" name="participants" required>
+        <select name="participation_symbol">
+            <option value="">없음</option>
+            <option value="@">@(파랑)</option>
+            <option value="#">#(노랑)</option>
+            <option value="&">&amp;(빨강)</option>
+            <option value="$">$$(초록)</option>
+        </select><br><br>
+
+        <label for="objective">목적:</label>
+        <input type="text" id="objective" name="objective" required>
+        <select name="objective_symbol">
+            <option value="">없음</option>
+            <option value="@">@(파랑)</option>
+            <option value="#">#(노랑)</option>
+            <option value="&">&amp;(빨강)</option>
+            <option value="$">$$(초록)</option>
+        </select><br><br>
+
+        <input type="submit" value="서신 생성">
+    </form>
+</body>
+</html>
+
